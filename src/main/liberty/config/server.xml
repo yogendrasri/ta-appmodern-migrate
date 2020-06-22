@@ -2,6 +2,7 @@
 Mon Jun 22 09:43:27 UTC 2020--><server>
 <!--These elements have been identified from this application's configuration.-->
 <featureManager>
+<feature>mpHealth-1.0</feature>
 <feature>appSecurity-2.0</feature>
 <feature>beanValidation-1.1</feature>
 <feature>cdi-1.2</feature>
@@ -9,20 +10,20 @@ Mon Jun 22 09:43:27 UTC 2020--><server>
 <feature>el-3.0</feature>
 <feature>javaMail-1.5</feature>
 <feature>jndi-1.0</feature>
-<feature>jpa-2.1</feature>
+<feature>jpa-2.0</feature>
 <feature>jsf-2.2</feature>
 <feature>jsp-2.3</feature>
 <feature>servlet-3.1</feature>
 </featureManager>
 <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
-<authData id="DefaultNode01/PlantsAuthAlias" password="???" user="db2inst1"/>
+<authData id="DefaultNode01/PlantsAuthAlias" password="YTMwY2IxNzQ4Mjg1" user="bluadmin"/>
 <dataSource containerAuthDataRef="DefaultNode01/PlantsAuthAlias" id="PlantsByWebSphereDataSourceNONJTA" jdbcDriverRef="DB2_Universal_JDBC_Driver_Provider" jndiName="jdbc/PlantsByWebSphereDataSourceNONJTA">
-        <properties.db2.jcc beginTranForResultSetScrollingAPIs="false" beginTranForVendorAPIs="false" connectionSharing="1" databaseName="PLANTSDB" enableClientInformation="false" enableMultithreadedAccessDetection="false" errorDetectionModel="ExceptionMapping" jmsOnePhaseOptimization="false" name="PlantsByWebSphereDataSourceNONJTA" nonTransactionalDataSource="false" portNumber="32612" preTestSQLString="SELECT CURRENT SQLID FROM SYSIBM.SYSDUMMY1" propagateClientIdentityUsingTrustedContext="false" reauthentication="false" retrieveMessagesFromServerOnGetMessage="true" serverName="169.62.104.36" traceLevel="-1" unbindClientRerouteListFromJndi="false" useTransactionRedirect="false" validateNewConnection="false" validateNewConnectionRetryCount="100" validateNewConnectionRetryInterval="3"/>
+        <properties.db2.jcc user="bluadmin" password="YTMwY2IxNzQ4Mjg1" transactional="false" beginTranForResultSetScrollingAPIs="false" beginTranForVendorAPIs="false" connectionSharing="1" databaseName="PLANTSDB" enableClientInformation="false" enableMultithreadedAccessDetection="false" errorDetectionModel="ExceptionMapping" jmsOnePhaseOptimization="false" name="PlantsByWebSphereDataSourceNONJTA" nonTransactionalDataSource="false" portNumber="50000" preTestSQLString="SELECT CURRENT SQLID FROM SYSIBM.SYSDUMMY1" propagateClientIdentityUsingTrustedContext="false" reauthentication="false" retrieveMessagesFromServerOnGetMessage="true" serverName="dashdb-txn-flex-yp-lon02-33.services.eu-gb.bluemix.net" traceLevel="-1" unbindClientRerouteListFromJndi="false" useTransactionRedirect="false" validateNewConnection="false" validateNewConnectionRetryCount="100" validateNewConnectionRetryInterval="3"  />
         <connectionManager agedTimeout="0" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="10" minPoolSize="0" reapTime="180"/>
     </dataSource>
 <!-- <variable name="DERBY_JDBC_DRIVER_PATH" value="${WAS_INSTALL_ROOT}/derby/lib"/> -->
 <dataSource containerAuthDataRef="DefaultNode01/PlantsAuthAlias" id="PlantsByWebSphereDataSource" jdbcDriverRef="DB2_Universal_JDBC_Driver_Provider_(XA)" jndiName="jdbc/PlantsByWebSphereDataSource">
-        <properties.db2.jcc beginTranForResultSetScrollingAPIs="false" beginTranForVendorAPIs="false" connectionSharing="1" databaseName="PLANTSDB" enableClientInformation="false" enableMultithreadedAccessDetection="false" errorDetectionModel="ExceptionMapping" name="PlantsByWebSphereDataSource" nonTransactionalDataSource="false" portNumber="32612" preTestSQLString="SELECT CURRENT SQLID FROM SYSIBM.SYSDUMMY1" propagateClientIdentityUsingTrustedContext="false" reauthentication="false" retrieveMessagesFromServerOnGetMessage="false" serverName="169.62.104.36" traceLevel="-1" unbindClientRerouteListFromJndi="false" useTransactionRedirect="false" validateNewConnection="false" validateNewConnectionRetryCount="100" validateNewConnectionRetryInterval="3"/>
+        <properties.db2.jcc user="bluadmin" password="YTMwY2IxNzQ4Mjg1" transactional="true" beginTranForResultSetScrollingAPIs="false" beginTranForVendorAPIs="false" connectionSharing="1" databaseName="PLANTSDB" enableClientInformation="false" enableMultithreadedAccessDetection="false" errorDetectionModel="ExceptionMapping" name="PlantsByWebSphereDataSource" nonTransactionalDataSource="false" portNumber="50000" preTestSQLString="SELECT CURRENT SQLID FROM SYSIBM.SYSDUMMY1" propagateClientIdentityUsingTrustedContext="false" reauthentication="false" retrieveMessagesFromServerOnGetMessage="false" serverName="dashdb-txn-flex-yp-lon02-33.services.eu-gb.bluemix.net" traceLevel="-1" unbindClientRerouteListFromJndi="false" useTransactionRedirect="false" validateNewConnection="false" validateNewConnectionRetryCount="100" validateNewConnectionRetryInterval="3"/>
         <connectionManager agedTimeout="0" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="10" minPoolSize="0" reapTime="180"/>
     </dataSource>
 <!-- <variable name="DB2UNIVERSAL_JDBC_DRIVER_NATIVEPATH" value=""/> -->
@@ -30,15 +31,15 @@ Mon Jun 22 09:43:27 UTC 2020--><server>
 <variable name="DB2UNIVERSAL_JDBC_DRIVER_NATIVEPATH" value="${shared.config.dir}/lib/global"/>
 <applicationManager autoExpand="true"/>
 <!--These elements are from the profile level configuration. Not all of them may be necessary for your application.-->
-<!--<jdbcDriver id="DB2_Universal_JDBC_Driver_Provider" javax.sql.DataSource="com.ibm.db2.jcc.DB2ConnectionPoolDataSource">
+<jdbcDriver id="DB2_Universal_JDBC_Driver_Provider" javax.sql.DataSource="com.ibm.db2.jcc.DB2ConnectionPoolDataSource">
         <library>
             <file name="/demo/db2drivers/db2jcc.jar"/>
             <file name="/demo/db2drivers/db2jcc_license_cu.jar"/>
         </library>
-    </jdbcDriver>--><!--<jdbcDriver id="DB2_Universal_JDBC_Driver_Provider_(XA)" javax.sql.DataSource="com.ibm.db2.jcc.DB2XADataSource">
+    </jdbcDriver> <jdbcDriver id="DB2_Universal_JDBC_Driver_Provider_(XA)" javax.sql.DataSource="com.ibm.db2.jcc.DB2XADataSource">
         <library>
             <file name="/demo/db2drivers/db2jcc.jar"/>
             <file name="/demo/db2drivers/db2jcc_license_cu.jar"/>
         </library>
-    </jdbcDriver>--><application id="PlantsByWebSphere8" location="plantsbywebsphere8.ear" name="PlantsByWebSphere8" type="ear"/>
+    </jdbcDriver><application id="PlantsByWebSphere8" location="plantsbywebsphere8.ear" name="PlantsByWebSphere8" type="ear"/>
 </server>
